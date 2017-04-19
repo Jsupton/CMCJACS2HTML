@@ -4,28 +4,31 @@
 <title>CMC Search Results</title>
 </head>
 <% UserUI u = (UserUI) session.getAttribute("currentUser");
+
 List<String> emphases = new ArrayList<String>();
 int nl,nu,svl,svu,sml,smu,nal,nau,asl,asu,ssl,ssu,ql,qu;
 nl=nu=svl=svu=sml=smu=nal=nau=asl=asu=ssl=ssu=ql=qu = 0;
 double pfl,pfu,el,eu,fal,fau,pal,pau,pel,peu = 0.0;
 pfl=pfu=el=eu=fal=fau=pal=pau=pel=peu = 0.0;
+
 String name = null;
-if(request.getParameter("UniversityName")!="")
-	name = request.getParameter("UniversityName").toUpperCase(); 
+if(request.getParameter("UniversityName")!=""){
+	name = request.getParameter("UniversityName").toUpperCase(); }
 String state = null;
-if(request.getParameter("State")!="")
-	state = request.getParameter("State").toUpperCase();
+if(request.getParameter("State")!=""){
+	state = request.getParameter("State").toUpperCase();}
 String loc = null;
-if(request.getParameter("Location")!="")
-	loc = request.getParameter("Location").toUpperCase();
+if(request.getParameter("Location")!=""){
+	loc = request.getParameter("Location").toUpperCase();}
 String con = null;
-if(request.getParameter("Control")!="")
-	con = request.getParameter("Control").toUpperCase();
-if(request.getParameter("Emphases1")!=null){emphases.add(request.getParameter("Emphases1"));}
-if(request.getParameter("Emphases2")!=null){emphases.add(request.getParameter("Emphases2"));}
-if(request.getParameter("Emphases3")!=null){emphases.add(request.getParameter("Emphases3"));}
-if(request.getParameter("Emphases4")!=null){emphases.add(request.getParameter("Emphases4"));}
-if(request.getParameter("Emphases5")!=null){emphases.add(request.getParameter("Emphases5"));}
+if(request.getParameter("Control")!=""){
+	con = request.getParameter("Control").toUpperCase();}
+
+if(request.getParameter("Emphases1")!=""){emphases.add(request.getParameter("Emphases1").toUpperCase());}
+if(request.getParameter("Emphases2")!=""){emphases.add(request.getParameter("Emphases2").toUpperCase());}
+if(request.getParameter("Emphases3")!=""){emphases.add(request.getParameter("Emphases3").toUpperCase());}
+if(request.getParameter("Emphases4")!=""){emphases.add(request.getParameter("Emphases4").toUpperCase());}
+
 if(request.getParameter("NumberOfStudentsLOWER")!=""){
 	nl = Integer.parseInt(request.getParameter("NumberOfStudentsLOWER"));}
 if(request.getParameter("NumberOfStudentsUPPER")!=""){
@@ -74,6 +77,8 @@ if(request.getParameter("QualityOfLifeLOWER")!=""){
 	ql = Integer.parseInt(request.getParameter("QualityOfLifeLOWER"));}
 if(request.getParameter("QualityOfLifeUPPER")!=""){
 	qu = Integer.parseInt(request.getParameter("QualityOfLifeUPPER"));}
+out.println(name+" "+ state+" "+ loc+" "+ con+" "+nl+" "+nu+" "+pfl+" "+pfu+" "+svl+" "+svu+" "+sml+" "+smu+" "+el+" "+eu+" "+fal+" "+fau+" "+nal+" "+nau+" "+
+		pal+" "+pau+" "+pel+" "+peu+" "+asl+" "+asu+" "+ssl+" "+ssu+" "+ql+" "+qu+" "+emphases);
 List<University> s = u.searchForSchools(name, state, loc, con,nl,nu,pfl,pfu,svl,svu,sml,smu,el,eu,fal,fau,nal,nau,
 		pal,pau,pel,peu,asl,asu,ssl,ssu,ql,qu,emphases);
 %>

@@ -317,7 +317,7 @@ public class SearchController {
 						 b = (university.getQualityOfLife() <= qualityOfLifeUPPER);
 				 }
 				 if(emphases!=null && b == true){
-					 int p = 0;
+					int p = 0;
 					for(String x : emphases){
 						for(String y: university.getEmphases()){
 							if(x.equals(y)){
