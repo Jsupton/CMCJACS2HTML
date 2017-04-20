@@ -86,7 +86,7 @@ border="1" cellpadding="2" cellspacing="2">
 <td style="vertical-align: top;">between <input name="AcademicScaleLOWER"> and <input name="AcademicScaleUPPER"></td>
 </tr>
 <tr>
-<td style="vertical-align: top;"><b>Social Scal</b>e<br>
+<td style="vertical-align: top;"><b>Social Scale</b><br>
 </td>
 <td style="vertical-align: top;">between <input name="SocialScaleLOWER"> and <input name="SocialScaleUPPER"></td>
 </tr>

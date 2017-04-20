@@ -77,8 +77,6 @@ if(request.getParameter("QualityOfLifeLOWER")!=""){
 	ql = Integer.parseInt(request.getParameter("QualityOfLifeLOWER"));}
 if(request.getParameter("QualityOfLifeUPPER")!=""){
 	qu = Integer.parseInt(request.getParameter("QualityOfLifeUPPER"));}
-out.println(name+" "+ state+" "+ loc+" "+ con+" "+nl+" "+nu+" "+pfl+" "+pfu+" "+svl+" "+svu+" "+sml+" "+smu+" "+el+" "+eu+" "+fal+" "+fau+" "+nal+" "+nau+" "+
-		pal+" "+pau+" "+pel+" "+peu+" "+asl+" "+asu+" "+ssl+" "+ssu+" "+ql+" "+qu+" "+emphases);
 List<University> s = u.searchForSchools(name, state, loc, con,nl,nu,pfl,pfu,svl,svu,sml,smu,el,eu,fal,fau,nal,nau,
 		pal,pau,pel,peu,asl,asu,ssl,ssu,ql,qu,emphases);
 %>
@@ -112,7 +110,7 @@ for(University uni: s){
 <td style="vertical-align: top;">
 <form method="post" action="SaveSchool.jsp" name="Save">
     <input name="Save" value="Save" type="submit">
-    <input name="Username" value="<%=uni.getUniversityName() %>" type="hidden">
+    <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: top;"> <%=uni.getUniversityName()%>
@@ -120,7 +118,7 @@ for(University uni: s){
 <td style="vertical-align: top;">
 <form method="post" action="ViewSearchedSchool.jsp" name="View">
     <input name="View" value="View" type="submit">
-    <input name="View" value="<%=uni.getUniversityName() %>" type="hidden">
+    <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
 </form>
 </td>
 </tr>

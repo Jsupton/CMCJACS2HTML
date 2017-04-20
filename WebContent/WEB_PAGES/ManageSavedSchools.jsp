@@ -18,14 +18,14 @@ cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;">SAVED SCHOOLS</td>
+<td colspan="8" rowspan="1" style="vertical-align: top;"><b>SAVED SCHOOLS</b></td>
 
 </tr>
 <tr>
-<td style="vertical-align: top;">Remove</td>
-<td style="vertical-align: top; text-align: center;">University Name
+<td style="vertical-align: top;"><b>Remove</b></td>
+<td style="vertical-align: top; text-align: center;"><b>University Name</b>
 </td>
-<td style="vertical-align: top;">View
+<td style="vertical-align: top;"><b>View</b>
 </td>
 </tr>
 <%
@@ -41,7 +41,7 @@ for(String uni: s){
 <td style="vertical-align: top;"> <%=uni%>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="ViewSchool.jsp" name="View">
+<form method="post" action="ViewSavedSchool.jsp" name="View">
     <input name="View" value="View" type="submit">
     <input name="Name" value="<%=uni %>" type="hidden">
 </form>

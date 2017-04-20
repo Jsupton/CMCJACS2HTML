@@ -17,9 +17,10 @@ for(String s:schools){
 <h2 style ="text-align:left">Manage Universities</h2>
 <br>
 <p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
+<p style="text-align:right;"><a href="ManageSavedSchools.jsp">Return to Saved Schools</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <br>
-<table style="text-align: left; width: 200px;" border="1" cellpadding="2"cellspacing="2">
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2"cellspacing="2">
 <tbody>
 <tr align="center">
 

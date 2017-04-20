@@ -13,12 +13,12 @@ ArrayList<University> uni = a.getUniversities(); %>
 <p style="text-align:right;"><a href="AdminMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <br>
-<table style="text-align: left; width: 200px;" border="1" cellpadding="2"cellspacing="2">
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2"cellspacing="2">
 <tbody>
 <tr align="center">
 
 <td colspan="17" rowspan="1" style="vertical-align: top;"><a
-href="AddUniversity.jsp">ADD University</a>
+href="AddUniversity.jsp"><b>ADD University</b></a>
 </td>
 
 </tr>
@@ -92,7 +92,7 @@ href="AddUniversity.jsp">ADD University</a>
 <td style="vertical-align: top;"><%=u.getQualityOfLife() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="Edit.jsp" name="Edit">
+<form method="post" action="EditUniversity.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
     <input name="Username" value="<%=u.getUniversityName() %>" type="hidden">
 </form>

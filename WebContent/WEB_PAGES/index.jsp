@@ -27,6 +27,9 @@
         else if(anyErrors!=null && anyErrors.equals("6")){
         	%><p style="color:blue; text-align:center"><b>LOGOUT SUCCESSFUL</b></p><%
         }
+        else if(anyErrors!=null && anyErrors.equals("7")){
+        	%><p style="color:green; text-align:center"><b>ACCOUNT CREATED SUCCESSFULLY</b></p><%
+        }
         %>
 <br>
 <p style="text-align:center;"> Login form:</p>
@@ -42,7 +45,7 @@ border="1" cellpadding="2" cellspacing="2">
 <tr>
 <td style="text-align: center;">Password<br>
 </td>
-<td style="text-align: center;"><input name="Password"> </td>
+<td style="text-align: center;"><input name="Password" type="password"> </td>
 </tr>
 
 <td style="vertical-align: middle;"><input value="Log in"
@@ -54,6 +57,7 @@ name="Reset" type="reset"></td>
 </table>
 <br>
 </form>
+<p style="text-align: center;"> If you are a new user please click <a href="NewUser.jsp">here</a> to create a new account.</p><br>
 <br>
 </body>
 </html>

@@ -12,7 +12,7 @@ User user = u.getCurrentUser();  %>
 <p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <body>
-<table style="text-align: left; width: 100%;" border="1" cellpadding="2"
+<table align="center" style="text-align: left; width: 80%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
 <tr align="center">
@@ -24,13 +24,13 @@ cellspacing="2">
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>First Name</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=user.getFirstName()%>">
+<td style="vertical-align: top;"><input name="FirstName" value ="<%=user.getFirstName()%>">
 </td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Last Name</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=user.getLastName()%>">
+<td style="vertical-align: top;"><input name="LastName" value ="<%=user.getLastName()%>">
 </td>
 </tr>
 <tr>
@@ -42,24 +42,24 @@ cellspacing="2">
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Password</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=user.getPassword() %>">
+<td style="vertical-align: top;"><input name="Password" value ="<%=user.getPassword() %>">
 </td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Type</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=user.getType() %>"readonly>
+<td style="vertical-align: top;"><input name="Type" value ="<%=user.getType() %>"readonly>
 </td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Status</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=user.getStatus() %>"readonly>
+<td style="vertical-align: top;"><input name="Status" value ="<%=user.getStatus() %>"readonly>
 </td>
 </tr>
 </tbody>
 </table>
-<form method="post" action="Edit.jsp" name="Edit">
+<form align="center" method="post" action="ManageProfile_action.jsp" name="Edit">
     <input name="Edit" value="Save Changes" type="submit">
     <input name="Username" value="<%=user.getUsername() %>" type="hidden">
     <input value="Reset" name="Reset" type="reset">

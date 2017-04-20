@@ -19,7 +19,7 @@ cellspacing="2">
 <tr align="center">
 
 <td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="Add.jsp"><b>ADD A USER</b></a>
+href="AddAccount.jsp"><b>ADD A USER</b></a>
 </td>
 
 </tr>
@@ -47,7 +47,7 @@ for(Account u: users){
 	%>
 <tr>
 <td style="vertical-align: top;">
-<form method="post" action="Edit.jsp" name="Edit">
+<form method="post" action="EditAccount.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
     <input name="Username" value="<%=u.getUsername() %>" type="hidden">
 </form>
@@ -65,7 +65,7 @@ for(Account u: users){
 <td style="vertical-align: top;"><%=u.getStatus() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="Deactivate.jsp" name="Deactivate">
+<form method="post" action="DeactivateAccount.jsp" name="Deactivate">
     <input name="Deactivate" value="Deactivate" type="submit">
     <input name="Username" value="<%=u.getUsername() %>" type="hidden">
 </form>
