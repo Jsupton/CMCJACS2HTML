@@ -80,7 +80,7 @@ cellspacing="2">
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Expenses</b>
 </td>
-<td style="vertical-align: top;"><input name="satMAth"></td>
+<td style="vertical-align: top;"><input name="expenses"></td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Percent With Financial Aid</b>
