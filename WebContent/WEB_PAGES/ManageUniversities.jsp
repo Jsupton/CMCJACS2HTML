@@ -94,7 +94,7 @@ href="AddUniversity.jsp"><b>ADD University</b></a>
 <td style="vertical-align: top;">
 <form method="post" action="EditUniversity.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
-    <input name="Username" value="<%=u.getUniversityName() %>" type="hidden">
+    <input name="University" value="<%=u.getUniversityName() %>" type="hidden">
 </form>
 </td>
 </tr>
