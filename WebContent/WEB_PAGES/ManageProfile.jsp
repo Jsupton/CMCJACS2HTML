@@ -12,6 +12,7 @@ User user = u.getCurrentUser();  %>
 <p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <body>
+<form align="center" method="post" action="ManageProfile_action.jsp" name="Edit">
 <table align="center" style="text-align: left; width: 80%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
@@ -59,7 +60,6 @@ cellspacing="2">
 </tr>
 </tbody>
 </table>
-<form align="center" method="post" action="ManageProfile_action.jsp" name="Edit">
     <input name="Edit" value="Save Changes" type="submit">
     <input name="Username" value="<%=user.getUsername() %>" type="hidden">
     <input value="Reset" name="Reset" type="reset">
