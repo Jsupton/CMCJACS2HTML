@@ -18,6 +18,13 @@ Admin admin = a.getCurrentAdmin();
         if(msg!=null){
             %><p style="text-align:center; color:green"><b>THE ACCOUNT <%=msg %> WAS DEACTIVATED SUCCESSFULLY</b></p><%
         }
+        else if(msg!=null){
+            %><p style="text-align:center; color:green"><b><%=msg %>'s ACCOUNT WAS ADDED SUCCESSFULLY</b></p><%
+        }
+String anyErrors = request.getParameter("Error");
+        if(anyErrors!=null && anyErrors.equals("1")){
+            %><p style="text-align:center; color:red"><b>AN ERROR OCCURRED. INVALID USERNAME</b></p><%
+        }
 %>
 
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
