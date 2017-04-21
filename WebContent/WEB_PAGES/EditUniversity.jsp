@@ -6,7 +6,7 @@
 </head>
 <body>
 <%
-UserUI u = (UserUI) session.getAttribute("currentUser");
+AdminUI u = (AdminUI) session.getAttribute("currentAdmin");
 String uname = request.getParameter("University");
 University uni = u.getAUniversity(uname);
 %>
