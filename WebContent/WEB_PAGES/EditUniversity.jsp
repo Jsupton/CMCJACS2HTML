@@ -6,7 +6,7 @@
 </head>
 <body>
 <%
-UserUI u = (UserUI) session.getAttribute("currentUser");
+AdminUI u = (AdminUI) session.getAttribute("currentAdmin");
 String uname = request.getParameter("University");
 University uni = u.getAUniversity(uname);
 %>
@@ -123,7 +123,7 @@ University uni = u.getAUniversity(uname);
 <tr>
 <td style="vertical-align: top;">
     <input name="Edit" value="Edit" type="submit">
-    <input name="University" value="<%=u.getUniversityName() %>" type="hidden">
+    <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
 </td>
 </tr>
 </tbody>
