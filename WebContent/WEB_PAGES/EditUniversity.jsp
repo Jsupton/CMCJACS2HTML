@@ -10,13 +10,25 @@ AdminUI u = (AdminUI) session.getAttribute("currentAdmin");
 String uname = request.getParameter("University");
 University uni = u.getAUniversity(uname);
 %>
+<h1 style ="text-align:left">CMC</h1>
+<h2 style ="text-align:left">Edit University</h2>
+<br>
+<p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
+<p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
+<br>
 <form method="post" action="EditUniversity.jsp" name="Edit">
 <table align="center" style="text-align: left; width: 80%;" border="1" cellpadding="2"cellspacing="2">
 <tbody>
 <tr align="center">
 <td colspan="2" rowspan="1" style="vertical-align: top;"><b>View Saved University</b>
 </td>
-</tr>
+</tr><h1 style ="text-align:left">CMC</h1>
+<h2 style ="text-align:left">Manage Universities</h2>
+<br>
+<p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
+<p style="text-align:right;"><a href="ManageSavedSchools.jsp">Return to Saved Schools</a><br></p>
+<p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
+<br>
 
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>University Name</b>
@@ -121,7 +133,7 @@ University uni = u.getAUniversity(uname);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: top;">
+<td colspan="2" rowspan="1" style="vertical-align: top;">
     <input name="Edit" value="Edit" type="submit">
     <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
 </td>

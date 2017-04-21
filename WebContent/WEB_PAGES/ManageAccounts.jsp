@@ -13,6 +13,13 @@ Admin admin = a.getCurrentAdmin();
 <br>
 <p style="text-align:right;"><a href="AdminMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
+
+<% String msg = request.getParameter("msg");
+        if(msg!=null){
+            %><p style="text-align:center; color:green"><b>THE ACCOUNT <%=msg %> WAS DEACTIVATED SUCCESSFULLY</b></p><%
+        }
+%>
+
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
