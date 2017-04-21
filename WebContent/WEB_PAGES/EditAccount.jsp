@@ -43,7 +43,7 @@ cellspacing="2">
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Username</b>
 </td>
-<td style="vertical-align: top;"><input name="Username" value ="<%=a.getUsername() %>">
+<td style="vertical-align: top;"><input name="Username" value ="<%=a.getUsername() %>" readonly>
 </td>
 </tr>
 <tr>

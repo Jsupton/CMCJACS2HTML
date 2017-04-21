@@ -18,12 +18,23 @@ Admin admin = a.getCurrentAdmin();
         if(msg!=null){
             %><p style="text-align:center; color:green"><b>THE ACCOUNT <%=msg %> WAS DEACTIVATED SUCCESSFULLY</b></p><%
         }
-        else if(msg!=null){
+		String msg = request.getParameter("msg2");
+        if(msg!=null){
             %><p style="text-align:center; color:green"><b><%=msg %>'s ACCOUNT WAS ADDED SUCCESSFULLY</b></p><%
         }
-String anyErrors = request.getParameter("Error");
+        String msg = request.getParameter("msg2");
+        if(msg!=null){
+            %><p style="text-align:center; color:green"><b>THE ACCOUNT <%=msg %> WAS ADDED SUCCESSFULLY</b></p><%
+        }
+		String anyErrors = request.getParameter("Error");
         if(anyErrors!=null && anyErrors.equals("1")){
             %><p style="text-align:center; color:red"><b>AN ERROR OCCURRED. INVALID USERNAME</b></p><%
+        }
+        else if(anyErrors!=null && anyErrors.equals("2")){
+            %><p style="text-align:center; color:red"><b>AN ERROR OCCURRED. INVALID TYPE</b></p><%
+        }
+        else if(anyErrors!=null && anyErrors.equals("3")){
+            %><p style="text-align:center; color:red"><b>AN ERROR OCCURRED. INVALID STATUS</b></p><%
         }
 %>
 

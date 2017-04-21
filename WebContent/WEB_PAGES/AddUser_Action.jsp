@@ -9,7 +9,7 @@ String type = request.getParameter("Type");
 String status = request.getParameter("Status");
 boolean b = u.addUser(fname, lname, username, password, type, status);
 if(b)
-	response.sendRedirect("ManageAccounts.jsp?msg="fname+" "+lname);
+	response.sendRedirect("ManageAccounts.jsp?msg2="fname+" "+lname);
 else
 	response.sendRedirect("ManageAccounts.jsp?Error=1");
 %>
