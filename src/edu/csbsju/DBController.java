@@ -146,7 +146,7 @@ public class DBController {
 			String state = x[i][2];
 			String control = x[i][3];
 			int numberOfStudents = Integer.parseInt(x[i][4]);
-			int percentFemale = Integer.parseInt(x[i][5]);
+			double percentFemale = Double.parseDouble(x[i][5]);
 			int satVerbal = Integer.parseInt(x[i][6]);
 			int satMath = Integer.parseInt(x[i][7]);
 			double expenses = Double.parseDouble(x[i][8]);

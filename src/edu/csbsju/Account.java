@@ -93,9 +93,6 @@ public class Account {
 	  * @throws error is the user tries to get a null password
 	  */
 	 public String getPassword() {
-		 if(password == null){
-			 throw new Error("There is no password for This user");
-		 }
 	  return password;
 	 }
 	
@@ -105,9 +102,6 @@ public class Account {
 	  * @throws an error if the user tries to get a null type
 	  */
 	 public char getType() {
-		 if(type == '\0'){
-			 throw new Error("There is no type for This user");
-		 }
 	  return type;
 	 }
 	 
@@ -117,9 +111,6 @@ public class Account {
 	  * @throws an error if the user tries to get a null status
 	  */
 	 public char getStatus() {
-		 if(status == '\0'){
-			 throw new Error("There is no status for This user");
-		 }
 		 return status;
 	 }
 	 
@@ -129,9 +120,6 @@ public class Account {
 	  * @throws an error if the user tries to get a null firstname
 	  */
 	public String getFirstName() {
-		if(firstName == null){
-			 throw new Error("There is no First name for This user");
-		 }
 		return firstName;
 	}
 
@@ -149,9 +137,6 @@ public class Account {
 	 * @throws an error if the user tries to get a null last name
 	 */
 	public String getLastName() {
-		if(lastName == null){
-			 throw new Error("There is no lastName for This user");
-		 }
 		return lastName;
 	}
 

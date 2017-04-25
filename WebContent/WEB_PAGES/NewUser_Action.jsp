@@ -1,4 +1,5 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%> 
+<%@include file="Security.jsp"%>
 
 <% DBController d = new DBController();
 String username = request.getParameter("Username"); 

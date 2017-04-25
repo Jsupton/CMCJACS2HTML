@@ -1,4 +1,5 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%>
+<%@include file="Security.jsp"%>
 
 <% UserUI u = (UserUI) session.getAttribute("currentUser");
 User user = u.getCurrentUser(); 

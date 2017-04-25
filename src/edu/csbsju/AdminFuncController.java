@@ -253,9 +253,6 @@ public class AdminFuncController {
   public boolean addAccount(String firstname, String lastname, String username, String password, char type, char status){
      Account a = admin.addAccount(firstname, lastname, username, password, type, status);
      boolean b = d.addAccount(a.getFirstName(),a.getLastName(),a.getUsername(),a.getPassword(),a.getType(),a.getStatus());
-     if(!b){
-     	throw new Error("The account object could not be added. Please try again");
-     }
      return b;
   }
   
@@ -272,9 +269,6 @@ public class AdminFuncController {
      boolean b = true;
      if(i==-1){
     	 b = false;
-     }
-     if(!b){
-    	 throw new Error("The addition of an emphases was unsuccessful");
      }
      return b;
   }

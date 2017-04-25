@@ -1,6 +1,32 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%> 
+<%@include file="Security.jsp"%>
 <html>
 <head>
+<style type="text/css">
+body {
+	background-color: #FFF;
+	margin:80px 80px 100px 100px;
+}
+div#header {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:20px;
+}
+div#footer {
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:8px;
+}
+</style>
+
 <title>CMC Search Results</title>
 </head>
 <% UserUI u = (UserUI) session.getAttribute("currentUser");
@@ -86,28 +112,32 @@ List<University> s = u.searchForSchools(name, state, loc, con,nl,nu,pfl,pfu,svl,
 <br>
 <p style="text-align:right;"><a href="UserMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
+
 <body>
+<div id="header"><b>CMC -- Choose My College</b></div>
+<div id="footer">Copyright ©2017 JACS. Powered by Upton, Schmidgall, Dehn, and Zins </div>
+
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;"><h3>SEARCH RESULTS</h3></td>
+<td colspan="8" rowspan="1" style="vertical-align: top;background-color:#B8FBB8;"><h3>SEARCH RESULTS</h3></td>
 
 </tr>
 <tr>
-<td style="vertical-align: top;">
+<td style="vertical-align: top;background-color:#E3E3E3;">
 <b>SAVE</b></td>
-<td style="vertical-align: top; text-align: center;"><b>UNIVERSITY NAME</b>
+<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>UNIVERSITY NAME</b>
 </td>
-<td style="vertical-align: top;"><b>VIEW</b>
+<td style="vertical-align: top;background-color:#E3E3E3;"><b>VIEW</b>
 </td>
 </tr>
 <%
 for(University uni: s){
 	%>
 <tr>
-<td style="vertical-align: top;">
+<td style="vertical-align: top;background-color:#F3F3F3;">
 <form method="post" action="SaveSchool.jsp" name="Save">
     <input name="Save" value="Save" type="submit">
     <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
@@ -115,7 +145,7 @@ for(University uni: s){
 </td>
 <td style="vertical-align: top;"> <%=uni.getUniversityName()%>
 </td>
-<td style="vertical-align: top;">
+<td style="vertical-align: top;background-color:#F3F3F3;">
 <form method="post" action="ViewSearchedSchool.jsp" name="View">
     <input name="View" value="View" type="submit">
     <input name="University" value="<%=uni.getUniversityName() %>" type="hidden">
