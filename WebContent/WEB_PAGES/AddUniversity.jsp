@@ -8,6 +8,7 @@
 <h1 style ="text-align:left">CMC</h1>
 <h2 style ="text-align:left">Create New Account</h2>
 <br>
+<p style="text-align:right;"><a href="AdminMenu.jsp">Return to Main Menu</a><br></p>
 <p style="text-align:right;"><a href="index.jsp">Return to Login</a><br></p>
 <body>
 <% String anyErrors = request.getParameter("Error");
