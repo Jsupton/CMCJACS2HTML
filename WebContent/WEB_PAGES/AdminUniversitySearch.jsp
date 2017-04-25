@@ -3,47 +3,27 @@
 
 <html>
 <head>
-<style>
-body {
-	background-color: #FFF;
-	margin:80px 30px 80px 30px
-}
-div#header {
-	position:fixed;
-	top:0px;
-	left:0px;
-	width:100%;
-	color:#FFF;
-	background:#333;
-	padding:20px;
-}
-div#footer {
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	color:#FFF;
-	background:#333;
-	padding:8px;
-}
-</style>
-
 <title>CMC Manage Universities</title>
 </head>
 <% AdminUI a = (AdminUI) session.getAttribute("currentAdmin");
 Admin admin = a.getCurrentAdmin(); 
-ArrayList<University> uni = a.getUniversities(); 
+String name = request.getParameter("UniName").toUpperCase();
+ArrayList<University> u = a.getUniversities();
+ArrayList<University> matches = new ArrayList<University>();
+for(University uni:u){
+	if(uni.getUniversityName().contains(name)){
+		matches.add(uni);
+	}
+}
 
    %>
 <h1 style ="text-align:left">CMC</h1>
 <h2 style ="text-align:left">Manage Universities</h2>
 <br>
 <p style="text-align:right;"><a href="AdminMenu.jsp">Return to Main Menu</a><br></p>
+<p style="text-align:right;"><a href="ManageUniversities.jsp">Return to Manage Universities</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <br>
-<body>
-<div id="header"><b>CMC -- Choose My College</b></div>
-<div id="footer">Copyright ©2017 JACS. Powered by Upton, Schmidgall, Dehn, and Zins </div>
 <%
 String msg = request.getParameter("msg");
 if(msg!=null && msg.equals("0")){
@@ -110,92 +90,97 @@ else if(msg!=null && msg.equals("16")){
     <input name="Edit" value="Edit" type="submit">
 </form>
 
+<%if(matches.size()==0){ %>
+	<p style="text-align:center; color:red"><b>THERE ARE NO SCHOOLS IN THE SYSTEM THAT CONTAIN THE NAME -- <%=name%></b></p>
+<%}
+else{%>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="17" rowspan="1" style="vertical-align: top;background-color:#B8FBB8;"><a
+<td colspan="17" rowspan="1" style="vertical-align: top; background-color:#B8FBB8;"><a
 href="AddUniversity.jsp"><b>ADD University</b></a>
 </td>
 
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>University Name</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>University Name</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>State</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>State</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Location</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Location</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Control</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Control</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Number of Students</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Number of Students</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Percent Female</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Percent Female</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>SAT Verbal</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>SAT Verbal</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>SAT Math</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>SAT Math</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Expenses</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Expenses</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Percent With Financial Aid</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Percent With Financial Aid</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Number Of Applicants</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Number Of Applicants</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Percent Admitted</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Percent Admitted</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Percent Enrolled</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Percent Enrolled</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Academic Scale</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Academic Scale</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Social Scale</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Social Scale</b>
 </td>
-<td style="vertical-align: top; text-align: center;background-color:#E3E3E3;"><b>Quality of Life</b>
+<td style="vertical-align: top; text-align: center; background-color:#E3E3E3;"><b>Quality of Life</b>
 </td>
-<td style="vertical-align: top;background-color:#E3E3E3;"><b>Edit</b></td>
+<td style="vertical-align: top; background-color:#E3E3E3;"><b>Edit</b></td>
 </tr>
-<%for(University u: uni){%>
+<%for(University un:matches){ %>
 <tr>
-<td style="vertical-align: top;"><%=u.getUniversityName() %>
+<td style="vertical-align: top;"><%=un.getUniversityName() %>
 </td>
-<td style="vertical-align: top;"><%=u.getState()%>
+<td style="vertical-align: top;"><%=un.getState()%>
 </td>
-<td style="vertical-align: top;"><%=u.getLocation()%>
+<td style="vertical-align: top;"><%=un.getLocation()%>
 </td>
-<td style="vertical-align: top;"><%=u.getControl() %>
+<td style="vertical-align: top;"><%=un.getControl() %>
 </td>
-<td style="vertical-align: top;"><%=u.getNumberOfStudents() %>
+<td style="vertical-align: top;"><%=un.getNumberOfStudents() %>
 </td>
-<td style="vertical-align: top;"><%=u.getPercentFemale() %>
+<td style="vertical-align: top;"><%=un.getPercentFemale() %>
 </td>
-<td style="vertical-align: top;"><%=u.getSatVerbal()%>
+<td style="vertical-align: top;"><%=un.getSatVerbal()%>
 </td>
-<td style="vertical-align: top;"><%=u.getSatMath()%>
+<td style="vertical-align: top;"><%=un.getSatMath()%>
 </td>
-<td style="vertical-align: top;"><%=u.getExpenses() %>
+<td style="vertical-align: top;"><%=un.getExpenses() %>
 </td>
-<td style="vertical-align: top;"><%=u.getFinancialAid() %>
+<td style="vertical-align: top;"><%=un.getFinancialAid() %>
 </td>
-<td style="vertical-align: top;"><%=u.getNumberOfApplicants() %>
+<td style="vertical-align: top;"><%=un.getNumberOfApplicants() %>
 </td>
-<td style="vertical-align: top;"><%=u.getPercentAdmitted()%>
+<td style="vertical-align: top;"><%=un.getPercentAdmitted()%>
 </td>
-<td style="vertical-align: top;"><%=u.getPercentEnrolled()%>
+<td style="vertical-align: top;"><%=un.getPercentEnrolled()%>
 </td>
-<td style="vertical-align: top;"><%=u.getAcademicScale() %>
+<td style="vertical-align: top;"><%=un.getAcademicScale() %>
 </td>
-<td style="vertical-align: top;"><%=u.getSocialScale() %>
+<td style="vertical-align: top;"><%=un.getSocialScale() %>
 </td>
-<td style="vertical-align: top;"><%=u.getQualityOfLife() %>
+<td style="vertical-align: top;"><%=un.getQualityOfLife() %>
 </td>
 <td style="vertical-align: top;">
 <form method="post" action="EditUniversity.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
-    <input name="University" value="<%=u.getUniversityName() %>" type="hidden">
+    <input name="University" value="<%=un.getUniversityName() %>" type="hidden">
 </form>
 </td>
 </tr>
-<%} %>
+<%}
+}%>
 </tbody>
 </table>
 </body>

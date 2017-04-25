@@ -206,10 +206,6 @@ public class University {
 		{
 			this.location = location.toUpperCase();
 		}
-		else
-		{
-			throw new IllegalArgumentException("Location must be Urban, Suburban, or Small-city.");
-		}
 		
 	}
 	
@@ -247,10 +243,6 @@ public class University {
 		{
 			this.control = control.toUpperCase();
 		}
-		else
-		{
-			throw new IllegalArgumentException("Control must be Private, State, City, or -1.");
-		}
 		
 	}
 	
@@ -268,10 +260,6 @@ public class University {
 	 * @throws IllegalArgumentException if numberOfStudents is less than 0
 	 */
 	public void setNumberOfStudents(int numberOfStudents) {
-		if(numberOfStudents < 0)
-		{
-			throw new IllegalArgumentException("Number of students cannot be negative.");
-		}
 		this.numberOfStudents = numberOfStudents;
 	}
 	
@@ -289,10 +277,6 @@ public class University {
 	 * @throws IllegalArgumentException if percentFemale is less than 0
 	 */
 	public void setPercentFemale(double percentFemale) {
-		if(percentFemale < 0 || percentFemale > 100)
-		{
-			throw new IllegalArgumentException("Percent female cannot be negative.");
-		}
 		this.percentFemale = percentFemale;
 	}
 	
@@ -307,13 +291,8 @@ public class University {
 	/**
 	 * sets the verbal SAT scores at a university
 	 * @param satVerbal the satVerbal to set
-	 * @throws IllegalArgumentException if satVerbal is less than 0 or greater than 800
 	 */
 	public void setSatVerbal(int satVerbal) {
-		if(satVerbal<0 || satVerbal>800)
-		{
-			throw new IllegalArgumentException("SAT Verbal must be between 0 - 800");
-		}
 		this.satVerbal = satVerbal;
 	}
 	
@@ -332,10 +311,6 @@ public class University {
 	 * 
 	 */
 	public void setSatMath(int satMath) {
-		if(satMath<0 || satMath>800)
-		{
-			throw new IllegalArgumentException("SAT Math must be between 0 - 800");
-		}
 		this.satMath = satMath;
 	}
 	
@@ -353,10 +328,6 @@ public class University {
 	 * @throws IllegalArgumentException if expenses is negative
 	 */
 	public void setExpenses(double expenses) {
-		if(expenses<0)
-		{
-			throw new IllegalArgumentException("Expenses cannot be negative");
-		}
 		this.expenses = expenses;
 	}
 	
@@ -374,10 +345,6 @@ public class University {
 	 * @throws IllegalArgumentException if financialAid is negative
 	 */
 	public void setFinancialAid(double financialAid) {
-		if(financialAid<0)
-		{
-			throw new IllegalArgumentException("Financial Aid cannot be negative");
-		}
 		this.financialAid = financialAid;
 	}
 	
@@ -395,10 +362,6 @@ public class University {
 	 * @throws IllegalArgumentException if numberOfApplicants is negative
 	 */
 	public void setNumberOfApplicants(int numberOfApplicants) {
-		if(numberOfApplicants<0)
-		{
-			throw new IllegalArgumentException("Number Of Applicants cannot be negative");
-		}
 		this.numberOfApplicants = numberOfApplicants;
 	}
 	
@@ -416,10 +379,6 @@ public class University {
 	 * @throws IllegalArgumentException if percentAdmitted is negative or greater than 100
 	 */
 	public void setPercentAdmitted(Double percentAdmitted) {
-		if(percentAdmitted<0 || percentAdmitted > 100)
-		{
-			throw new IllegalArgumentException("Percent Admitted must be between 0 and 100");
-		}
 		this.percentAdmitted = percentAdmitted;
 	}
 	
@@ -437,10 +396,6 @@ public class University {
 	 * @throws IllegalArgumentException if percentEnrolled is negative or greater than 100
 	 */
 	public void setPercentEnrolled(Double percentEnrolled) {
-		if(percentEnrolled<0 || percentEnrolled>100)
-		{
-			throw new IllegalArgumentException("Percent Enrolled must be between 0 and 100");
-		}
 		this.percentEnrolled = percentEnrolled;
 	}
 	
@@ -458,10 +413,6 @@ public class University {
 	 * @throws IllegalArgumentException if academicScale is negative or greater than 5
 	 */
 	public void setAcademicScale(int academicScale) {
-		if(academicScale<0 || academicScale > 5)
-		{
-			throw new IllegalArgumentException("Academic Scale must be between 0 and 5");
-		}
 		this.academicScale = academicScale;
 	}
 	
@@ -479,10 +430,6 @@ public class University {
 	 * @throws IllegalArgumentException if socialScale is negative
 	 */
 	public void setSocialScale(int socialScale) {
-		if(socialScale<0 || socialScale > 5)
-		{
-			throw new IllegalArgumentException("Social scale must be between 0 and 5");
-		}
 		this.socialScale = socialScale;
 	}
 	
@@ -500,10 +447,6 @@ public class University {
 	 * @throws IllegalArgumentException if qualityOfLife is negative
 	 */
 	public void setQualityOfLife(int qualityOfLife) {
-		if(qualityOfLife<0 || qualityOfLife > 5)
-		{
-			throw new IllegalArgumentException("Quality of life must be between 0 and 5");
-		}
 		this.qualityOfLife = qualityOfLife;
 	}
 	

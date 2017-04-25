@@ -1,7 +1,31 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%>
-
+<%@include file="Security.jsp"%>
 <html>
 <head>
+<style>
+body {
+	background-color: #FFF;
+	margin:80px 80px 100px 100px;
+}
+div#header {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:20px;
+}
+div#footer {
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:8px;
+}
+</style>
 <title>CMC Manage Universities</title>
 </head>
 <% UserUI u = (UserUI) session.getAttribute("currentUser");
@@ -20,16 +44,21 @@ for(String s:schools){
 <p style="text-align:right;"><a href="ManageSavedSchools.jsp">Return to Saved Schools</a><br></p>
 <p style="text-align:right;"><a href="Logout_action.jsp">Logout</a><br></p>
 <br>
+
+<body>
+<div id="header"><b>CMC -- Choose My College</b></div>
+<div id="footer">Copyright ©2017 JACS. Powered by Upton, Schmidgall, Dehn, and Zins </div>
+
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="17" rowspan="1" style="vertical-align: top;"><b>Compare Saved Universities</b>
+<td colspan="17" rowspan="1" style="vertical-align: top;background-color:#B8FBB8;"><b>Compare Saved Universities</b>
 </td>
 
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>University Name</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>University Name</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getUniversityName() %>
@@ -37,7 +66,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>State</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>State</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getState() %>
@@ -45,7 +74,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Location</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Location</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getLocation() %>
@@ -53,7 +82,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Control</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Control</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getControl() %>
@@ -61,7 +90,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Number of Students</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Number of Students</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getNumberOfStudents() %>
@@ -69,7 +98,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Percent Female</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Percent Female</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getPercentFemale() %>
@@ -77,7 +106,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>SAT Verbal</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>SAT Verbal</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getSatVerbal() %>
@@ -85,7 +114,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>SAT Math</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>SAT Math</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getSatMath() %>
@@ -93,7 +122,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Expenses</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Expenses</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getExpenses() %>
@@ -101,7 +130,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Percent With Financial Aid</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Percent With Financial Aid</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getFinancialAid() %>
@@ -109,7 +138,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Number Of Applicants</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Number Of Applicants</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getNumberOfApplicants() %>
@@ -117,7 +146,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Percent Admitted</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Percent Admitted</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getPercentAdmitted() %>
@@ -125,7 +154,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Percent Enrolled</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Percent Enrolled</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getPercentEnrolled() %>
@@ -133,7 +162,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Academic Scale</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Academic Scale</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getAcademicScale() %>
@@ -141,7 +170,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Social Scale</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Social Scale</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getSocialScale() %>
@@ -149,7 +178,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Quality of Life</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Quality of Life</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getQualityOfLife() %>
@@ -157,7 +186,7 @@ for(String s:schools){
 <%} %>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><b>Empases</b>
+<td style="vertical-align: top;background-color:#E3E3E3; text-align: center;"><b>Empases</b>
 </td>
 <%for(University a:uni){ %>
 <td style="vertical-align: top; text-align: center;"><%=a.getEmphases() %>

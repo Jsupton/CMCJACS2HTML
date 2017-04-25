@@ -118,9 +118,6 @@ public class AccountController {
 	  */
 	 public University getAUniversity(String name){
 		 University u = d.getAUniversity(name);
-		 if(u == null){
-			 throw new Error("The university name entered does not exist in the Database.");
-		 }
 		 return u;
 	 }
 	 

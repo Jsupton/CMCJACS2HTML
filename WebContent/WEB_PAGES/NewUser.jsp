@@ -1,4 +1,5 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%> 
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,7 +49,7 @@ cellspacing="2">
 <tr>
 <td style="vertical-align: top; text-align: center;"><b>Username</b>
 </td>
-<td style="vertical-align: top;"><input name="Username">
+<td style="vertical-align: top;"><input name="Username" required>
 </td>
 </tr>
 <tr>

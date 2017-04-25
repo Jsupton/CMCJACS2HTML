@@ -1,10 +1,10 @@
 <%@page language="java" import="edu.csbsju.*,java.util.*"%>
 
-
+<%@include file="Security.jsp"%>
 
 <% 
 String univName, univState, univLocation, univControl;
-univName = univState = univLocation = univControl = "";
+univName = univState = univLocation = univControl = "-1";
 
 int univNumStudents, univSatVerbal, univSatMath, univNumApplicants, univAcademicScale, univSocialScale, univQualityOfLife;
 univNumStudents = univSatVerbal = univSatMath = univNumApplicants = univAcademicScale = univSocialScale = univQualityOfLife = -1;
@@ -12,162 +12,135 @@ univNumStudents = univSatVerbal = univSatMath = univNumApplicants = univAcademic
 Double univPercFem, univExpenses, univPercFinancialAid, univPercAdmitted, univPercEnrolled;
 univPercFem = univExpenses = univPercFinancialAid = univPercAdmitted = univPercEnrolled = -1.0;
 
-
-
-
 AdminUI u = (AdminUI) session.getAttribute("currentAdmin");
 
 
 
 List<String> emphases = new ArrayList<String>();
-int nl,nu,svl,svu,sml,smu,nal,nau,asl,asu,ssl,ssu,ql,qu;
-nl=nu=svl=svu=sml=smu=nal=nau=asl=asu=ssl=ssu=ql=qu = 0;
-double pfl,pfu,el,eu,fal,fau,pal,pau,pel,peu = 0.0;
-pfl=pfu=el=eu=fal=fau=pal=pau=pel=peu = 0.0;
 
 
 if(request.getParameter("univName")!=""){
-	univName = request.getParameter("univName").toUpperCase(); }
-else{
-	response.sendRedirect("ManageUniversities.jsp");
-}
+univName = request.getParameter("univName").toUpperCase(); }
 if(request.getParameter("state")!=""){
 	univState = request.getParameter("state").toUpperCase();}
-else{
-	univState = "-1";}
+
 if(request.getParameter("location")!=""){
 	univLocation = request.getParameter("location").toUpperCase();}
-else{
-	univLocation ="-1";}
+
 if(request.getParameter("control")!=""){
 	univControl = request.getParameter("control").toUpperCase();
 	}
-else
-{
-	univControl = "-1";
-}
-if(request.getParameter("numStudents")!="" && Integer.parseInt(request.getParameter("numStudents"))>0){
+
+if(request.getParameter("numStudents")!=""){
 	univNumStudents = Integer.parseInt(request.getParameter("numStudents"));}
-else
-{
-	univNumStudents = -1;
+
+if(request.getParameter("percFemale")!=""){
+	univPercFem = Double.parseDouble(request.getParameter("percFemale"));
 }
-if(request.getParameter("percFemale")!="" && Double.parseDouble(request.getParameter("percFemale"))>0 && Double.parseDouble(request.getParameter("percFemale"))<=100){
-	univPercFem = Double.parseDouble(request.getParameter("percFemale"));}
-else if(request.getParameter("percFemale")!=""&& Double.parseDouble(request.getParameter("percFemale"))>100)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univPercFem = -1.0;
-}
-if(request.getParameter("satVerbal")!="" && Integer.parseInt(request.getParameter("satVerbal"))>0 && Integer.parseInt(request.getParameter("satVerbal"))<800){
+if(request.getParameter("satVerbal")!="" ){
 	univSatVerbal = Integer.parseInt(request.getParameter("satVerbal"));}
-else if(request.getParameter("satVerbal")!=""&& Integer.parseInt(request.getParameter("satVerbal"))>=800)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univSatVerbal = -1;
-}
-if(request.getParameter("satMath")!="" && Integer.parseInt(request.getParameter("satMath"))>0 && Integer.parseInt(request.getParameter("satMath"))<800){
+if(request.getParameter("satMath")!="" ){
 	univSatMath = Integer.parseInt(request.getParameter("satMath"));}
-else if(request.getParameter("satMath")!=""&& Integer.parseInt(request.getParameter("satMath"))>=800)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univSatMath = -1;
-}
-if(request.getParameter("expenses")!="" && Double.parseDouble(request.getParameter("expenses"))>0){
+if(request.getParameter("expenses")!=""){
 	univExpenses = Double.parseDouble(request.getParameter("expenses"));}
-else
-{
-	univExpenses = -1.0;
-}
-if(request.getParameter("percFinancialAid")!="" && Double.parseDouble(request.getParameter("percFinancialAid"))>0){
+if(request.getParameter("percFinancialAid")!=""){
 	univPercFinancialAid = Double.parseDouble(request.getParameter("percFinancialAid"));}
-else
-{
-	univPercFinancialAid = -1.0;
-}
-if(request.getParameter("numApplicants")!="" && Integer.parseInt(request.getParameter("numApplicants"))>0){
+if(request.getParameter("numApplicants")!="" ){
 	univNumApplicants = Integer.parseInt(request.getParameter("numApplicants"));}
-else
-{
-	univNumApplicants = -1;
-}
-if(request.getParameter("percAdmitted")!="" && Double.parseDouble(request.getParameter("percAdmitted"))>0 && Double.parseDouble(request.getParameter("percAdmitted"))<=100){
+if(request.getParameter("percAdmitted")!="" ){
 	univPercAdmitted = Double.parseDouble(request.getParameter("percAdmitted"));}
-else if(request.getParameter("percAdmitted")!=""&& Double.parseDouble(request.getParameter("percAdmitted"))>100)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univPercAdmitted = -1.0;
-}
-if(request.getParameter("percEnrolled")!="" && Double.parseDouble(request.getParameter("percEnrolled"))>0 && Double.parseDouble(request.getParameter("percEnrolled"))<=100){
+if(request.getParameter("percEnrolled")!="" ){
 	univPercEnrolled = Double.parseDouble(request.getParameter("percEnrolled"));}
-else if(request.getParameter("percEnrolled")!=""&& Double.parseDouble(request.getParameter("percEnrolled"))>100)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univPercEnrolled = -1.0;
-}
-if(request.getParameter("academicScale")!="" && Integer.parseInt(request.getParameter("academicScale"))>0 && Integer.parseInt(request.getParameter("academicScale"))<=5){
+if(request.getParameter("academicScale")!="" ){
 	univAcademicScale = Integer.parseInt(request.getParameter("academicScale"));}
-else if(request.getParameter("academicScale")!=""&& Integer.parseInt(request.getParameter("academicScale"))>5)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univAcademicScale = -1;
-}
-if(request.getParameter("socialScale")!="" && Integer.parseInt(request.getParameter("socialScale"))>0 && Integer.parseInt(request.getParameter("socialScale"))<=5){
+if(request.getParameter("socialScale")!=""){
 	univSocialScale = Integer.parseInt(request.getParameter("socialScale"));}
-else if(request.getParameter("socialScale")!=""&& Integer.parseInt(request.getParameter("socialScale"))>5)
-{
-	response.sendRedirect("ManageUniversities.jsp");
-}
-else
-{
-	univSocialScale = -1;
-}
-if(request.getParameter("qualityOfLife")!="" && Integer.parseInt(request.getParameter("qualityOfLife"))>0 && Integer.parseInt(request.getParameter("qualityOfLife"))<=5){
+if(request.getParameter("qualityOfLife")!=""){
 	univQualityOfLife = Integer.parseInt(request.getParameter("qualityOfLife"));}
-else if(request.getParameter("qualityOfLife")!=""&& Integer.parseInt(request.getParameter("qualityOfLife"))>5)
-{
-	response.sendRedirect("ManageUniversities.jsp");
+
+
+
+if(request.getParameter("univName")==""){
+	response.sendRedirect("ManageUniversities.jsp?msg=2");
 }
-else
+else if(request.getParameter("qualityOfLife")!=""&& (Integer.parseInt(request.getParameter("qualityOfLife"))>5 || Integer.parseInt(request.getParameter("qualityOfLife"))<-1))
 {
-	univQualityOfLife = -1;
+	response.sendRedirect("ManageUniversities.jsp?msg=3");
 }
-
-
-
-
-boolean b = u.addUniversity(univName, univState,
-		univLocation, univControl, univNumStudents, univPercFem,univSatVerbal,
-		univSatMath, univExpenses, univPercFinancialAid, univNumApplicants,
-		univPercAdmitted, univPercEnrolled, univAcademicScale, univSocialScale,
-		univQualityOfLife);
-if(b)
+else if(request.getParameter("socialScale")!=""&& (Integer.parseInt(request.getParameter("socialScale"))>5 || Integer.parseInt(request.getParameter("socialScale"))<-1))
 {
-	
-response.sendRedirect("ManageUniversities.jsp");
+	response.sendRedirect("ManageUniversities.jsp?msg=4");
 }
-else
+else if(request.getParameter("academicScale")!=""&& (Integer.parseInt(request.getParameter("academicScale"))>5 || Integer.parseInt(request.getParameter("academicScale"))<-1))
 {
-	
-response.sendRedirect("AddUniversity.jsp?Error=1"); 
+	response.sendRedirect("ManageUniversities.jsp?msg=5");
+}
+else if(request.getParameter("percEnrolled")!=""&& (Double.parseDouble(request.getParameter("percEnrolled"))>100 || Double.parseDouble(request.getParameter("percEnrolled"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=6");
+}
+else if(request.getParameter("percAdmitted")!=""&& (Double.parseDouble(request.getParameter("percAdmitted"))>100 || Double.parseDouble(request.getParameter("percAdmitted"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=7");
+}
+else if(request.getParameter("satMath")!="" && (Integer.parseInt(request.getParameter("satMath"))>=800 || Integer.parseInt(request.getParameter("satMath"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=8");
+}
+else if(request.getParameter("satVerbal")!="" && (Integer.parseInt(request.getParameter("satVerbal"))>=800 || Integer.parseInt(request.getParameter("satVerbal"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=9");
+}
+else if(request.getParameter("percFemale")!="" && (Double.parseDouble(request.getParameter("percFemale"))>100 || Double.parseDouble(request.getParameter("percFemale"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=10");
+}
+else if(request.getParameter("percFinancialAid")!="" && (Double.parseDouble(request.getParameter("percFinancialAid"))>100 || Double.parseDouble(request.getParameter("percFinancialAid"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=11");
+}
+else if(request.getParameter("numStudents")!="" && Integer.parseInt(request.getParameter("numStudents"))<-1)
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=12");
+}
+else if(request.getParameter("expenses")!="" && (Double.parseDouble(request.getParameter("expenses"))<-1))
+{
+	response.sendRedirect("ManageUniversities.jsp?msg=13");
+}
+else{
+	boolean b = u.addUniversity(univName, univState,
+			univLocation, univControl, univNumStudents, univPercFem,univSatVerbal,
+			univSatMath, univExpenses, univPercFinancialAid, univNumApplicants,
+			univPercAdmitted, univPercEnrolled, univAcademicScale, univSocialScale,
+			univQualityOfLife);
+	if(b)
+	{
+		String emp1 = request.getParameter("Emphases1").toUpperCase();
+		String emp2 = request.getParameter("Emphases2").toUpperCase();
+		String emp3 = request.getParameter("Emphases3").toUpperCase();
+		String emp4 = request.getParameter("Emphases4").toUpperCase();
+		String emp5 = request.getParameter("Emphases5").toUpperCase();
+		if(emp1!=""){
+			u.addEmphases(univName, emp1);
+		}
+		if(emp2!=""){
+			u.addEmphases(univName, emp2);
+		}
+		if(emp3!=""){
+			u.addEmphases(univName, emp3);
+		}
+		if(emp4!=""){
+			u.addEmphases(univName, emp4);
+		}
+		if(emp5!=""){
+			u.addEmphases(univName, emp5);
+		}
+		response.sendRedirect("ManageUniversities.jsp?msg=1"); 
+	}
+	else
+	{
+	response.sendRedirect("ManageUniversities.jsp?msg=0"); 
+	}
 }
 
 %>

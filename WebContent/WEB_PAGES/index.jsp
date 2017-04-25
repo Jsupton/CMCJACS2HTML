@@ -2,12 +2,41 @@
 
 <html>
 <head>
+<style type="text/css">
+body {
+	background-color: #FFF;
+	margin:80px 80px 100px 100px;
+}
+div#header {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:20px;
+}
+div#footer {
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	color:#FFF;
+	background:#333;
+	padding:8px;
+}
+</style>
 
 <title>CMC Login</title>
 </head>
-<h1 style="text-align:center;"> CMC </h1>
-<h2 style="text-align:center;"> Login </h2>
 <body>
+
+<div id="header"><b>CMC -- Choose My College</b></div>
+<div id="footer">Copyright ©2017 JACS. Powered by Upton, Schmidgall, Dehn, and Zins </div>
+
+<h1 style="text-align:center;"> Choose-My-College </h1>
+<h2 style="text-align:center;"> CMC - Login </h2>
+
 <%String anyErrors = request.getParameter("Error");
         if(anyErrors!=null && anyErrors.equals("1")){
             %><p style="text-align:center; color:red"><b>INVALID USERNAME</b></p><%
@@ -32,25 +61,27 @@
         }
         %>
 <br>
-<p style="text-align:center;"> Login form:</p>
 <form method="post" action="Login_action.jsp" name="Login"><br>
 <table align="center" style="text-align: center; width: 266px; height: 228px;"
 border="1" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="text-align: center;">Username<br>
-</td>
-<td style="text-align: center;"><input name="Username"> </td>
+<td colspan="2" style="text-align:center; background-color:lightblue;"><b>Login form:</b></td>
 </tr>
 <tr>
-<td style="text-align: center;">Password<br>
+<td style="text-align: center; background-color:#E3E3E3;"><b>Username</b><br>
 </td>
-<td style="text-align: center;"><input name="Password" type="password"> </td>
+<td style="text-align: center; background-color:#E3E3E3;"><input name="Username" required> </td>
+</tr>
+<tr>
+<td style="text-align: center;background-color:#E3E3E3;"><b>Password</b><br>
+</td>
+<td style="text-align: center; background-color:#E3E3E3;"><input name="Password" type="password" required> </td>
 </tr>
 
-<td style="vertical-align: middle;"><input value="Log in"
+<td style="vertical-align: middle; background-color:#E3E3E3;"><input value="Log in"
 name="Log in" type="submit"></td>
-<td style="vertical-align: middle;"><input value="Reset"
+<td style="vertical-align: middle; background-color:#E3E3E3;"><input value="Reset"
 name="Reset" type="reset"></td>
 </tr>
 </tbody>
@@ -59,5 +90,6 @@ name="Reset" type="reset"></td>
 </form>
 <p style="text-align: center;"> If you are a new user please click <a href="NewUser.jsp">here</a> to create a new account.</p><br>
 <br>
+
 </body>
 </html>
